@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">maze_solver</string>
+    <string name="application_name">Maze Solver</string>
 </resources>
