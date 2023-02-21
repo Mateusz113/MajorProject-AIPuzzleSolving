@@ -1,4 +1,4 @@
-package uk.ac.aber.dcs.cs31620.maze_solver
+package uk.ac.aber.dcs.cs39440.maze_solver
 
 import org.junit.Test
 

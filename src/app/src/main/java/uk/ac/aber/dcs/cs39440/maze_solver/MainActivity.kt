@@ -1,4 +1,4 @@
-package uk.ac.aber.dcs.cs31620.maze_solver
+package uk.ac.aber.dcs.cs39440.maze_solver
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,7 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import uk.ac.aber.dcs.cs31620.maze_solver.ui.theme.Maze_solverTheme
+import uk.ac.aber.dcs.cs39440.maze_solver.ui.theme.Maze_solverTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

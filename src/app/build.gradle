@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'uk.ac.aber.dcs.cs31620.maze_solver'
+    namespace 'uk.ac.aber.dcs.cs39440.maze_solver'
     compileSdk 33
 
     defaultConfig {
-        applicationId "uk.ac.aber.dcs.cs31620.maze_solver"
+        applicationId "uk.ac.aber.dcs.cs39440.maze_solver"
         minSdk 31
         targetSdk 33
         versionCode 1
