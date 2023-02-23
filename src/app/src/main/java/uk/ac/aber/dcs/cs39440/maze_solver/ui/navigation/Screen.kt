@@ -6,8 +6,3 @@ sealed class Screen(
     object Maze : Screen("maze")
     object Settings : Screen("settings")
 }
-
-val tabsScreens = listOf(
-    Screen.Maze,
-    Screen.Settings
-)

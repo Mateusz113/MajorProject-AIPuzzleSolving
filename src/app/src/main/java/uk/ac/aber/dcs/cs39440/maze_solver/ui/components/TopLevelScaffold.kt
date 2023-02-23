@@ -6,12 +6,15 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import uk.ac.aber.dcs.cs39440.maze_solver.ui.theme.Maze_solverTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 @SuppressLint
 fun TopLevelScaffold(
+    navController: NavController,
     pageContent:
     @Composable (innerPadding: PaddingValues) -> Unit = {}
 ) {
@@ -20,7 +23,7 @@ fun TopLevelScaffold(
             TopAppBar()
         }
     ){ innerPadding ->
-        ScreenSelectionTabs(innerPadding)
+        ScreenSelectionTabs(innerPadding, navController)
     }
 }
 
@@ -28,6 +31,7 @@ fun TopLevelScaffold(
 @Preview
 fun TopLevelScaffoldPreview() {
     Maze_solverTheme {
-        TopLevelScaffold()
+        val navController = rememberNavController()
+        TopLevelScaffold(navController)
     }
 }
