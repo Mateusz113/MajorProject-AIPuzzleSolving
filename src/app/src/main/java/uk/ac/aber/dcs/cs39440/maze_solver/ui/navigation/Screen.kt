@@ -6,3 +6,9 @@ sealed class Screen(
     object Maze : Screen("maze")
     object Settings : Screen("settings")
 }
+
+//List of screens used by tabs
+val tabsScreens = listOf(
+    Screen.Maze,
+    Screen.Settings
+)
