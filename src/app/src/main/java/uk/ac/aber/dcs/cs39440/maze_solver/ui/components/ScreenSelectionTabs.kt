@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -21,22 +22,23 @@ import uk.ac.aber.dcs.cs39440.maze_solver.ui.theme.Maze_solverTheme
 
 @Composable
 fun ScreenSelectionTabs(
-    innerPadding: PaddingValues,
     navController: NavController
 ) {
     val labels = mapOf(
         Screen.Maze to R.string.maze,
         Screen.Settings to R.string.settings
     )
-
     var tabsState by remember { mutableStateOf(0) }
     val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val currentDestination = navBackStackEntry?.destination?.route
+    val currentDestination = navBackStackEntry?.destination
+    tabsScreens.forEach { screen ->
+        if (currentDestination?.hierarchy?.any { it.route == screen.route } == true) {
+            tabsState = tabsScreens.indexOf(screen)
+        }
+    }
 
     TabRow(
         selectedTabIndex = tabsState,
-        modifier = Modifier
-            .padding(innerPadding)
     ) {
         tabsScreens.forEach { screen ->
             val labelText = labels[screen]
@@ -45,7 +47,7 @@ fun ScreenSelectionTabs(
                 onClick = {
                     tabsState = tabsScreens.indexOf(screen)
                     navController.navigate(screen.route) {
-                        popUpTo(navController.graph.findStartDestination().id){
+                        popUpTo(navController.graph.findStartDestination().id) {
                             saveState = true
                         }
                         launchSingleTop = true
@@ -68,6 +70,6 @@ fun ScreenSelectionTabPreview() {
     Maze_solverTheme {
         val innerPadding = PaddingValues()
         val navController = rememberNavController()
-        ScreenSelectionTabs(innerPadding, navController)
+        ScreenSelectionTabs(navController)
     }
 }

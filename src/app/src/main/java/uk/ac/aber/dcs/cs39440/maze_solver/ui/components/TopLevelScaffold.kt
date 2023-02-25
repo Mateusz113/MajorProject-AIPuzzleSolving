@@ -20,11 +20,12 @@ fun TopLevelScaffold(
 ) {
     Scaffold(
         topBar = {
-            TopAppBar()
+            ScreenSelectionTabs(navController)
+        },
+        content = { innerPadding ->
+            pageContent(innerPadding)
         }
-    ){ innerPadding ->
-        ScreenSelectionTabs(innerPadding, navController)
-    }
+    )
 }
 
 @Composable
