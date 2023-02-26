@@ -24,19 +24,26 @@ import uk.ac.aber.dcs.cs39440.maze_solver.ui.theme.Maze_solverTheme
 fun ScreenSelectionTabs(
     navController: NavController
 ) {
+    // List of labels for tabs
     val labels = mapOf(
         Screen.Maze to R.string.maze,
         Screen.Settings to R.string.settings
     )
+    //Holds the state of which tab is active
     var tabsState by remember { mutableStateOf(0) }
+
+    //Getting the current destination
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
+
+    //Determining the active tab
     tabsScreens.forEach { screen ->
         if (currentDestination?.hierarchy?.any { it.route == screen.route } == true) {
             tabsState = tabsScreens.indexOf(screen)
         }
     }
 
+    //Creating the tabs based on tabsScreens list
     TabRow(
         selectedTabIndex = tabsState,
     ) {
