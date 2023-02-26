@@ -3,4 +3,11 @@
     <string name="application_name">Maze Solver</string>
     <string name="maze">Maze</string>
     <string name="settings">Settings</string>
+    <string name="algorithm_choosing_desc">Algorithm:</string>
+    <string name="bfs">Breadth-first search</string>
+    <string name="dfs">Depth-first search</string>
+    <string name="smallMazeSize">20 x 30</string>
+    <string name="mediumMazeSize">30 x 45</string>
+    <string name="largeMazeSize">40 x 60</string>
+    <string name="maze_size_desc">Maze size:</string>
 </resources>
