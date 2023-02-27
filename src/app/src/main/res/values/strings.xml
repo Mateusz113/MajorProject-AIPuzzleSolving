@@ -10,4 +10,6 @@
     <string name="mediumMazeSize">30 x 45</string>
     <string name="largeMazeSize">40 x 60</string>
     <string name="maze_size_desc">Maze size:</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
 </resources>
